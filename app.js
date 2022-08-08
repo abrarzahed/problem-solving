@@ -523,3 +523,35 @@ console.log(
   myFunction(new Date("2000/01/01 08:00:00"), new Date("2000/01/01 08:00:00"))
 );
 */
+
+/*
+// Write a function that takes two date instances as argument
+// It should return true if they fall on the exact same day
+// It should return false otherwise
+function myFunction(a, b) {
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDay() === b.getDay()
+  );
+}
+
+console.log(myFunction(new Date("2000/01/01"), new Date("2000/01/01")));
+console.log(myFunction(new Date("2000/01/01"), new Date("2000/01/02")));
+*/
+
+// This is a more difficult challenge
+// Write a function that takes two date instances as arguments
+// It should return an object with the properties 'hrs', 'min', and 'sec'
+// The corresponding values should display the absolute difference between the two dates in hours, minutes, and seconds
+function myFunction(a, b) {
+  const obj = {};
+  obj.hrs = a.getHours() - b.getHours();
+  obj.min = Math.abs(a.getMinutes() - b.getMinutes());
+  obj.sec = Math.abs(a.getSeconds() - b.getSeconds());
+  return obj;
+}
+
+console.log(
+  myFunction(new Date("2000/01/01 08:00:00"), new Date("2000/01/01 08:45:10"))
+);
