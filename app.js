@@ -540,6 +540,7 @@ console.log(myFunction(new Date("2000/01/01"), new Date("2000/01/01")));
 console.log(myFunction(new Date("2000/01/01"), new Date("2000/01/02")));
 */
 
+/*
 // This is a more difficult challenge
 // Write a function that takes two date instances as arguments
 // It should return an object with the properties 'hrs', 'min', and 'sec'
@@ -555,3 +556,25 @@ function myFunction(a, b) {
 console.log(
   myFunction(new Date("2000/01/01 08:00:00"), new Date("2000/01/01 08:45:10"))
 );
+*/
+
+/*
+// Write a function that takes two date instances as argument
+// It should return the number of days that lies between those dates
+function myFunction(a, b) {
+  const difference = a.getTime() - b.getTime();
+  return Math.abs(difference / (1000 * 3600 * 24));
+}
+console.log(myFunction(new Date("2020-06-11"), new Date("2020-06-01")));
+console.log(myFunction(new Date("2000-01-01"), new Date("2020-06-01")));
+*/
+
+/*
+// Write a function that takes as argument a date instance (a) and a number (b)
+// It should add b days to a and return the number of milliseconds since January 1, 1970, 00:00:00 UTC
+function myFunction(a, b) {
+  a.setDate(a.getDate() + b);
+  return a.getTime();
+}
+console.log(myFunction(new Date(Date.UTC(2000, 01, 01)), 31));
+*/
