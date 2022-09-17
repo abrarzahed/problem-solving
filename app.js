@@ -620,3 +620,92 @@ console.log(myFunction(new Date(2021, 8, 10, 15, 14, 00)));
 console.log(myFunction(new Date(2021, 8, 10, 15, 31, 00)));
 console.log(myFunction(new Date(2021, 8, 10, 15, 22, 00)));
 */
+
+/*
+
+function myReplace(str, before, after) {
+  const arr = str.split(" ");
+
+  const indexOfWordToRemove = arr.indexOf(arr.find((word) => word === before));
+
+  if (before[0].toUpperCase() === before[0]) {
+    arr[indexOfWordToRemove] = after.slice(0, 1).toUpperCase() + after.slice(1);
+  } else if (before[0].toLowerCase() === before[0]) {
+    arr[indexOfWordToRemove] = after.slice(0, 1).toLowerCase() + after.slice(1);
+  } else {
+    arr[indexOfWordToRemove] = after;
+  }
+  return arr.join(" ");
+}
+
+console.log(myReplace("He is sleeping on the couch", "Sleeping", "sitting"));
+*/
+
+/*
+Pairs of DNA strands consist of nucleobase pairs. Base pairs are represented by the characters AT and CG, which form building blocks of the DNA double helix.
+
+The DNA strand is missing the pairing element. Write a function to match the missing base pairs for the provided DNA strand. For each character in the provided string, find the base pair character. Return the results as a 2d array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+*/
+/*
+function pairElement(str) {
+  return str.split("").map(function (el) {
+    if (el === "A") {
+      return ["A", "T"];
+    } else if (el === "T") {
+      return ["T", "A"];
+    } else if (el === "C") {
+      return ["C", "G"];
+    } else {
+      return ["G", "C"];
+    }
+  });
+}
+
+console.log(pairElement("GCG"));
+*/
+
+/*
+Missing letters
+Find the missing letter in the passed letter range and return it.
+
+If all letters are present in the range, return undefined.
+*/
+
+/*
+
+function fearNotLetter(str) {
+  for (let i = 0; i < str.length; i++) {
+    const charCode = str.charCodeAt(i);
+
+    if (charCode !== str.charCodeAt(0) + i) {
+      return String.fromCharCode(charCode - 1);
+    }
+  }
+  return undefined;
+}
+
+// test here
+console.log(fearNotLetter("abce"));
+*/
+
+/*
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples.
+*/
+
+function uniteUnique(arr) {
+  return [...arguments]
+    .flat()
+    .filter((item, ind, arr) => arr.indexOf(item) === ind);
+}
+
+console.dir(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
