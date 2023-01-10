@@ -701,7 +701,7 @@ The unique numbers should be sorted by their original order, but the final array
 
 Check the assertion tests for examples.
 */
-
+/*
 function uniteUnique(arr) {
   return [...arguments]
     .flat()
@@ -709,3 +709,55 @@ function uniteUnique(arr) {
 }
 
 console.dir(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+*/
+
+/*
+write a function that will find and return an item and its parent column from an array which contains columns as objects
+
+Each column has an id property and an array of items property. Those items objects also contain an id along with a tile property
+*/
+/*
+const data = [
+  {
+    id: 1,
+    items: [
+      {
+        id: 121,
+        text: "Learn javascript",
+      },
+      {
+        id: 122,
+        text: "Master your javascript",
+      },
+    ],
+  },
+  {
+    id: 2,
+    items: [
+      {
+        id: 212,
+        text: "Learn css",
+      },
+      {
+        id: 213,
+        text: "Master your css",
+      },
+    ],
+  },
+];
+function findItemAndColumn(columnsData, itemID) {
+  const [item, parentColumn] = (() => {
+    for (const column of columnsData) {
+      const item = column.items.find((item) => item.id === itemID);
+
+      if (item) {
+        return [item, column];
+      }
+    }
+  })();
+  return [item, parentColumn];
+}
+
+const [item, column] = findItemAndColumn(data, 213);
+console.log(`Item: ${JSON.stringify(item)}, column: ${JSON.stringify(column)}`);
+*/
