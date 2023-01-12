@@ -748,16 +748,21 @@ const data = [
 function findItemAndColumn(columnsData, itemID) {
   const [item, parentColumn] = (() => {
     for (const column of columnsData) {
-      const item = column.items.find((item) => item.id === itemID);
+      // const item = column.items.find((item) => item.id === itemID);
 
-      if (item) {
-        return [item, column];
+      // if (item) {
+      //   return [item, column];
+      // }
+      for (const item of column.items) {
+        if (item.id === itemID) {
+          return [item, column];
+        }
       }
     }
   })();
   return [item, parentColumn];
 }
 
-const [item, column] = findItemAndColumn(data, 213);
+const [item, column] = findItemAndColumn(data, 122);
 console.log(`Item: ${JSON.stringify(item)}, column: ${JSON.stringify(column)}`);
 */
